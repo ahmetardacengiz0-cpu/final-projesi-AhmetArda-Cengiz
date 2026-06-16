@@ -34,7 +34,7 @@ selected_test = metrics["models"][selected_name]["test"]
 
 st.title("🎓 Öğrenci Başarı Riski Karar Destek Sistemi")
 st.caption(
-    "İkinci dönem sonundaki mevcut bilgilerle final notunun 10'un altında kalma riskini tahmin eder. "
+    "İkinci dönem sonundaki mevcut bilgilerle final notunun 100 üzerinden 50'nin altında kalma riskini tahmin eder. "
     "Sonuç eğitim amaçlı karar desteğidir; tek başına öğrenci hakkında karar vermek için kullanılmamalıdır."
 )
 
@@ -45,7 +45,7 @@ with st.sidebar:
     st.metric("Risk yakalama (Recall)", f"{selected_test['recall_risk']:.1%}")
     st.write(f"Veri seti: {metrics['dataset_rows']} öğrenci")
     st.write(f"Riskli örnek sayısı: {metrics['risk_count']}")
-    st.info("Risk tanımı: Final notu G3 < 10")
+    st.info("Risk tanımı: Final notu 50/100 altında (veri setinde G3 < 10/20)")
 
 st.subheader("Öğrenci bilgilerini girin")
 col1, col2, col3 = st.columns(3)
@@ -88,8 +88,9 @@ with col3:
     goout = st.slider("Arkadaşlarla dışarı çıkma sıklığı", 1, 5, 3)
     health = st.slider("Genel sağlık durumu", 1, 5, 4)
     absences = st.number_input("Devamsızlık sayısı", 0, 93, 4)
-    g1 = st.slider("1. dönem notu (G1)", 0, 20, 11)
-    g2 = st.slider("2. dönem notu (G2)", 0, 20, 11)
+    g1_100 = st.slider("1. dönem notu (100 üzerinden)", 0, 100, 55)
+    g2_100 = st.slider("2. dönem notu (100 üzerinden)", 0, 100, 55)
+    st.caption("Notlar model için otomatik olarak 20'lik ölçeğe dönüştürülür.")
 
 input_frame = pd.DataFrame(
     [
@@ -107,8 +108,10 @@ input_frame = pd.DataFrame(
             "goout": goout,
             "health": health,
             "absences": absences,
-            "G1": g1,
-            "G2": g2,
+            # UCI veri setindeki G1 ve G2 notları 0-20 ölçeğindedir.
+            # Kullanıcı 100'lük sistemde giriş yapar; model için 5'e bölünür.
+            "G1": g1_100 / 5,
+            "G2": g2_100 / 5,
         }
     ]
 )
