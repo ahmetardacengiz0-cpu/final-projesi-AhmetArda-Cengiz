@@ -1,0 +1,4 @@
+Seçilen model: Lojistik Regresyon
+Test ROC-AUC: 0.9412
+Risk recall: 0.92
+Model ve metrikler artifacts/ klasörüne kaydedildi.

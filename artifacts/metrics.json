@@ -1,0 +1,107 @@
+{
+  "selected_model": "Lojistik Regresyon",
+  "selection_rule": "Önce test risk recall, sonra ROC-AUC, sonra düşük overfit farkı",
+  "target_definition": "G3 < 10 ise risk=1",
+  "features": [
+    "age",
+    "address",
+    "traveltime",
+    "studytime",
+    "failures",
+    "schoolsup",
+    "famsup",
+    "higher",
+    "internet",
+    "famrel",
+    "goout",
+    "health",
+    "absences",
+    "G1",
+    "G2"
+  ],
+  "dataset_rows": 649,
+  "risk_count": 100,
+  "non_risk_count": 549,
+  "random_state": 42,
+  "test_size": 0.25,
+  "models": {
+    "Lojistik Regresyon": {
+      "train": {
+        "accuracy": 0.9239,
+        "precision_risk": 0.6727,
+        "recall_risk": 0.9867,
+        "f1_risk": 0.8,
+        "roc_auc": 0.9858,
+        "confusion_matrix": [
+          [
+            375,
+            36
+          ],
+          [
+            1,
+            74
+          ]
+        ],
+        "sample_count": 486
+      },
+      "test": {
+        "accuracy": 0.8896,
+        "precision_risk": 0.5897,
+        "recall_risk": 0.92,
+        "f1_risk": 0.7188,
+        "roc_auc": 0.9412,
+        "confusion_matrix": [
+          [
+            122,
+            16
+          ],
+          [
+            2,
+            23
+          ]
+        ],
+        "sample_count": 163
+      },
+      "overfit_gap_auc": 0.0446
+    },
+    "Rastgele Orman": {
+      "train": {
+        "accuracy": 0.9691,
+        "precision_risk": 0.8409,
+        "recall_risk": 0.9867,
+        "f1_risk": 0.908,
+        "roc_auc": 0.9981,
+        "confusion_matrix": [
+          [
+            397,
+            14
+          ],
+          [
+            1,
+            74
+          ]
+        ],
+        "sample_count": 486
+      },
+      "test": {
+        "accuracy": 0.8773,
+        "precision_risk": 0.5676,
+        "recall_risk": 0.84,
+        "f1_risk": 0.6774,
+        "roc_auc": 0.9441,
+        "confusion_matrix": [
+          [
+            122,
+            16
+          ],
+          [
+            4,
+            21
+          ]
+        ],
+        "sample_count": 163
+      },
+      "overfit_gap_auc": 0.054
+    }
+  }
+}
