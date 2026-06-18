@@ -2,7 +2,7 @@
 
 Bu proje, **Akademik Yapay Zekaya Giriş Bireysel Ürün Geliştirme Projesi - Seçenek 3** kapsamında hazırlanmış çalışan bir makine öğrenmesi karar destek uygulamasıdır.
 
-> **Tanıtım videosu:** Tanıtım videosu final sürümünde bu bölüme eklenecektir.
+> **Tanıtım videosu:**  https://youtu.be/pjEHNKvjjr0
 
 
 ## Problem tanımı
