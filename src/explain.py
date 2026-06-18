@@ -35,7 +35,7 @@ def explain_instance(
 
     rows = []
     original_columns = instance.columns.tolist()
-    for encoded_name, value in zip(feature_names, shap_values, strict=True):
+    for encoded_name, value in zip(feature_names, shap_values,):
         original = _original_feature(encoded_name, original_columns)
         rows.append(
             {
